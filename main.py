@@ -3,6 +3,7 @@ import time
 from args import parse_args
 from trainer import get_trainer
 from loader import get_loader
+from tqdm import tqdm
 
 if __name__ == '__main__':
     torch.backends.cudnn.deterministic = True
@@ -26,7 +27,7 @@ if __name__ == '__main__':
                     seed=seed)
 
     print("\n=> Start training..")
-    for t in range(args.epochs):
+    for t in tqdm(range(args.epochs)):
         trainer.fit_epoch(loader=train_loader)
         loss, metric = trainer.evaluate_loader(loader=train_loader)
         print(f"Epoch: {t}, Loss: {loss:.2f}, Accuracy: {metric*100:.2f}%")
