@@ -1,5 +1,6 @@
-#PyTorch TP
-##Preliminary Steps
+# PyTorch TP
+
+## Preliminary Steps
 
 1. Download this project:
 
